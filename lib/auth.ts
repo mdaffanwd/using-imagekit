@@ -12,10 +12,6 @@ export const authOptions: NextAuthOptions = {
             clientId: process.env.GOOGLE_CLIENT_ID!,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET!
         }),
-        GithubProvider({
-            clientId: process.env.GITHUB_ID!,
-            clientSecret: process.env.GITHUB_SECRET!,
-        }),
         CredentialsProvider({
             name: "Credentials",
             credentials: {
@@ -73,11 +69,11 @@ export const authOptions: NextAuthOptions = {
     },
     pages: {
         signIn: "/login",
-        error: "/login"
+        error: "/error"
     },
     session: {
         strategy: "jwt",
         maxAge: 30 * 24 * 60 * 60,
     },
     secret: process.env.NEXTAUTH_SECRET
-} 
+}
